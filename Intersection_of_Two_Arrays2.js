@@ -19,22 +19,17 @@ Explanation: [9,4] is also accepted.
  * @return {number[]}
  */
  var intersect = function(nums1, nums2) {
-    l1 = nums1.length;
-    l2 = nums2.length; 
-    let tmp =[];
-    let count;
-    if (l1 < l2 ){
-        for(let i=0 ; i<l1 ; i++){
-            if (nums2[i]==nums1[j]){
-                tmp.push(nums1[i])
+    let tmp = [];
+    for (let i = 0; i < nums1.length; i++) {
+        for (let j = 0; j < nums2.length; j++) {
+            if (nums2[j] === nums1[i]) {
+                tmp.push(nums2[j])
+                nums1.splice(i, 1);
+                i--;
+                nums2.splice(j,1);
+                j--;
             }
         }
-    }else{
-        for(let i=0 ; i<l2 ; i++){
-            if (nums1.includes(nums2[i])){
-                tmp.push(nums2[i])
-            }
-        } 
     }
     return tmp
 };
