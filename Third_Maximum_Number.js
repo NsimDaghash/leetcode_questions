@@ -34,26 +34,23 @@ The third distinct maximum is 1.
  * @return {number}
  */
  let thirdMax = function(nums) {
-    nums = nums.sort();
-    let maxVal , j =0 ;
-    if (nums.length<3){
-        maxVal = Math.max(...nums);
+    nums.sort((a,b) => a-b);
+    let maxVal, j = 0;
+    maxVal = Math.max(...nums);
+    if (nums.length < 3) {
         return maxVal;
     }
-    if(nums.length == 3){
-        return nums[0];
-    }
-    else{
-        for( let i =nums.length ; i>0; i--){
-            if(nums[i] != nums[i-1]){              
+    else {
+        for (let i = nums.length; i > 0; i--) {
+            if (nums[i] != nums[i - 1]) {
                 j++
             }
-            if(j == 3 ){
-                return nums[i-1]
+            if (j == 3) {
+                return nums[i - 1]
             }
         }
-    }
-    
+        return maxVal;
+    } 
 };
 
 let nums = [2,2,3,1];
