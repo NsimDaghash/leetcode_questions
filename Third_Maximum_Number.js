@@ -1,7 +1,8 @@
 /*
 414. Third Maximum Number
 
-Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.
+Given an integer array nums, return the third distinct maximum number in this array. 
+If the third maximum does not exist, return the maximum number.
 
 Example 1:
 
@@ -36,7 +37,7 @@ The third distinct maximum is 1.
     nums = nums.sort();
     let maxVal , j =0 ;
     if (nums.length<3){
-        maxval = Math.max(...nums);
+        maxVal = Math.max(...nums);
         return maxVal;
     }
     if(nums.length == 3){
@@ -44,13 +45,16 @@ The third distinct maximum is 1.
     }
     else{
         for( let i =nums.length ; i>0; i--){
-            if(nums[i] != nums[i-1]){
+            if(nums[i] != nums[i-1]){              
                 j++
             }
-            if(j == 2 ){
-                return nums[i]
+            if(j == 3 ){
+                return nums[i-1]
             }
         }
     }
     
 };
+
+let nums = [2,2,3,1];
+console.log(thirdMax(nums));
