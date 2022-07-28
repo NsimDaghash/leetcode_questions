@@ -17,23 +17,22 @@ Output: [2]
  * @return {number[]}
  */
 let findDisappearedNumbers = function(nums) {
-    let numLength = nums.length;
-    let tmp=[];
-    nums = nums.sort((a, b)=>(a - b));
-    console.log(nums);
-    for (let i = 0,j=0; i < nums.length - 1; i++,j++) {
-        if (nums[i + 1] === nums[i]) {
-            tmp.push (nums[i]+1);
-            nums.splice(i, 1);
-        }
+    const result = [];
+
+    for (let i = 0; i < nums.length; i++) {
+      const index = Math.abs(nums[i]) - 1;
+      if (nums[index] > 0) {
+        nums[index] = -nums[index];
+      }
     }
-    console.log(nums);
-/*   for (let k = 0,j=0; k < nums.length; k++,j++) {
-            if (nums[k] !== j) {
-                tmp.push(j);
-            }
-        }*/
-    return tmp
+  
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > 0) {
+        result.push(i + 1);
+      }
+    }
+  
+    return result;
 };
 
 let nums = [4,3,2,7,8,2,3,1];
