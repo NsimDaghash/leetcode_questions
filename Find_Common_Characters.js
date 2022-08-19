@@ -22,20 +22,23 @@ words[i] consists of lowercase English letters.
  * @return {string[]}
  */
 let commonChars = function(words) {
-    let tmp = words[0].split("");
-    let result = [];
-    for ( let j=0;j<tmp.length;j++){
-        let count = 1;
-        for ( let i=1;i< words.length;i++){
-            if(words[i].includes(tmp[j])){
-                count++ ;
-            }
-        }  
-        if (count == words.length){
-            result.push(tmp[j]);
+  let tmp = words[0].split("");
+  let result = [];
+  for (let j = 0; j < tmp.length; j++) {
+    let total = 0;
+    for (let i = 0; i < words.length; i++) {
+      let tmp2 = words[i].split("");
+        if (words[i].includes(tmp[j])) {
+          tmp2.splice(tmp2.indexOf(tmp[j]), 1);
+          total = total + 1;
         }
-    }     
-    return result 
+      words[i] = tmp2.join("");
+      if (total == words.length) {
+        result.push(tmp[j]);
+      }      
+    }
+  }
+  return result;
 };
 
 let words = ["bella","label","roller"] ; 
