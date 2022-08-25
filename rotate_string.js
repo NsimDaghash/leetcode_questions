@@ -31,4 +31,3 @@ let rotateString = function(s, goal) {
 };
 
 let s = "abcde", goal = "abced";
-console.log(rotateString(s, goal));

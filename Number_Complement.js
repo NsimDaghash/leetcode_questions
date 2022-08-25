@@ -34,4 +34,3 @@ let findComplement = function (num) {
 };
 
 let num = 5;
-console.log(findComplement(num));

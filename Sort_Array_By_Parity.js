@@ -31,4 +31,3 @@ let sortArrayByParity = function(nums) {
     return tmp
 };
 let nums = [3,1,2,4];
-console.log(sortArrayByParity(nums));

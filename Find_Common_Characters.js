@@ -43,3 +43,4 @@ let commonChars = function (words) {
 
 let words = ["cool","lock","cook"];
 console.log(commonChars(words));
+
