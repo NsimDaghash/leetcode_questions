@@ -23,18 +23,19 @@ Output: 1
  * @param {string} s
  * @return {number}
  */
- var countSegments = function(s) { 
+let countSegments = function(s) { 
     let count = 0
     s=s.trim()
     if (s === "" )
         return 0
     else{
         s =s.split(" ")
-        for( let i=0;i<s.length;i++){         
-            if (s !== "" ){
+        for( let i=0;i<s.length;i++){                     
+            if (s[i] !== "" ){
                 count = count +1
             }
         }
         return (count)
+    }  eturn (count)
     }    
 };
