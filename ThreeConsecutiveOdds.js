@@ -30,4 +30,3 @@ let threeConsecutiveOdds = function (arr) {
 
 let arr = [2,6,4,1];
 console.log(threeConsecutiveOdds(arr));
-

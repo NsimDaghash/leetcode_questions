@@ -31,5 +31,4 @@ Output: "y"
   };
 
   let s = "abcd", t = "abcd";
-
   console.log(findTheDifference(s, t));

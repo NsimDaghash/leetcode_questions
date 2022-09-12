@@ -30,14 +30,15 @@ Explanation: s can be split into "LLLLRRRR".
  * @param {string} s
  * @return {number}
  */
- let balancedStringSplit = function(s) {
-    let l = 0;
-    let count = 0;
-    for (let i = 0; i < s.length; i++) {
-        l += (s[i] === 'L' ? 1 : -1)
-        if (l === 0) count++
-    };
-    return count;
+let balancedStringSplit = function (s) {
+  let l = 0;
+  let count = 0;
+  for (let i = 0; i < s.length; i++) {
+    l += s[i] === "L" ? 1 : -1;
+    if (l === 0) count++;
+  }
+  return count;
 };
-let s = "RLRRRLLRLL"
+let s = "RLRRRLLRLL";
+
 console.log(balancedStringSplit(s));

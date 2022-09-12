@@ -24,16 +24,16 @@ Output: "ay"
  * @param {string} s
  * @return {string}
  */
-let removeDuplicates = function(s) {
-    s= s.split("");
-    for ( let i=0 ; i<s.length-1 ; i++){
-        if (s[i] == s[i+1]){
-            s.splice(i,2)
-            i = i -2 ;
-        }
+let removeDuplicates = function (s) {
+  s = s.split("");
+  for (let i = 0; i < s.length - 1; i++) {
+    if (s[i] == s[i + 1]) {
+      s.splice(i, 2);
+      i = i - 2;
     }
-    s=s.join("");
-    return(s);
+  }
+  s = s.join("");
+  return s;
 };
 
 let s = "azxxzy";

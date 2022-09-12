@@ -1,3 +1,4 @@
+
 let heightChecker = function(heights) {
     let result = 0 ;
     let expected = [] ;

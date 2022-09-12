@@ -34,7 +34,7 @@ let relativeSortArray = function (arr1, arr2) {
       tmp2.push(arr1[i]);
     }
   }
-  tmp2=tmp2.sort((a,b)=>a-b);
+  tmp2 = tmp2.sort((a, b) => a - b);
   for (let i = 0; i < tmp2.length; i++) {
     tmp.push(tmp2[i]);
   }
