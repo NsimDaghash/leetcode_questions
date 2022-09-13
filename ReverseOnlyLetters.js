@@ -27,24 +27,49 @@ Output: "Qedo1ct-eeLg=ntse-T!"
  */
 let reverseOnlyLetters = function (s) {
   let arr = s.split("");
-  let sol = "";
-  let arr2= [];
-  for (let i = 0, j = arr.length - 1; i < arr.length; i++, j--) {
+  let sol = "",
+    j = arr.length - 1,
+    i = 0;
+  let arr2 = [];
+
+  do {
     if (
       ((arr[i] >= "a" && arr[i] <= "z") || (arr[i] >= "A" && arr[i] <= "Z")) &&
       ((arr[j] >= "a" && arr[j] <= "z") || (arr[j] >= "A" && arr[j] <= "Z"))
     ) {
       arr2[i] = arr[j];
       arr2[j] = arr[i];
-    } 
-    else {
-        arr2[i] = (arr[i])
-     // j=j+1
+      i = i + 1;
+      j--;
     }
-  }
+    if (
+      !((arr[i] >= "a" && arr[i] <= "z") || (arr[i] >= "A" && arr[i] <= "Z")) &&
+      ((arr[j] >= "a" && arr[j] <= "z") || (arr[j] >= "A" && arr[j] <= "Z"))
+    ) {
+      arr2[i] = arr[i];
+      i = i + 1;
+    }
+    if (
+      ((arr[i] >= "a" && arr[i] <= "z") || (arr[i] >= "A" && arr[i] <= "Z")) &&
+      !((arr[j] >= "a" && arr[j] <= "z") || (arr[j] >= "A" && arr[j] <= "Z"))
+    ) {
+      arr2[j] = arr[j];
+      j = j - 1;
+    }
+    if (
+      !((arr[i] >= "a" && arr[i] <= "z") || (arr[i] >= "A" && arr[i] <= "Z")) &&
+      !((arr[j] >= "a" && arr[j] <= "z") || (arr[j] >= "A" && arr[j] <= "Z"))
+    ) {
+      arr2[i] = arr[i];
+      arr2[j] = arr[j];
+      i = i + 1;
+      j--;
+    }
+  } while (i <= j);
   sol = arr2.join("");
   return sol;
 };
 
-let s = "ad-bC";
+let s = "a-bC-dEf-ghIj";
 console.log(reverseOnlyLetters(s));
+
