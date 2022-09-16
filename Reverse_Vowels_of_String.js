@@ -13,50 +13,30 @@ Input: s = "leetcode"
 Output: "leotcede"
 */
 let reverseVowels = function (s) {
-    let vowels = ["a", "e", "i", "o", "u","A","E","I","O","U"];
-    let start = 0, end = (s.length - 1);
-    let tmp = "", flg1 = 0, flg2 = 0;
-    while (end > start) {
-        for (let i = start; i < end; i++) {
-            for (let j = 0; j < vowels.length; j++) {
-                if (s[i] == vowels[j]) {
-                    start = i;
-                    j = vowels.length;
-                    i = end
-                    flg1 = 1;
-                }
-            }
+  s = s.split("");
+  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  let start = 0,
+    end = s.length - 1,
+    tmp = "",
+    flag = 1;
+  for (start; start <= end; start++) {
+    if (vowels.includes(s[start])) {
+      flag = 1;
+      while (end > start && flag == 1) {
+        if (vowels.includes(s[end])) {
+          tmp = s[end];
+          s[end] = s[start];
+          s[start] = tmp;
+          flag = 0;
+          end = end - 1;
+        } else {
+          end = end - 1;
         }
-        if (start == end) {
-            return s;
-        }
-        for (let k = end; k > start; k--) {
-            for (let j = 0; j < vowels.length; j++) {
-                if (s[k] == vowels[j]) {
-                    end = k;
-                    j = vowels.length;
-                    k = 0;
-                    flg2 = 1;
-                }
-            }
-        }
-        if (end == 0) {
-            return s;
-        }
-        if (flg1 == 1 && flg2 == 1) {
-            i = start;
-            s = s.split('')
-            tmp = s[end];
-            s[end] = s[i];
-            s[i] = tmp;
-            s = s.join('');
-        }
-        start++;
-        end--;
-        flg1 = 0;
-        flg2 = 0;
+      }
     }
-    return s;
+  }
+  s = s.join("");
+  return s;
 };
 
 let s = "leetcOde";
